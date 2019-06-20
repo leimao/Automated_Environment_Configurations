@@ -27,12 +27,19 @@ sudo apt-get install -y nvidia-docker2
 sudo pkill -SIGHUP dockerd
 
 # Add the user to the docker group
-# This is not useful for baking the instance to image on cloud
+# This is probably not useful for baking the instance to image on cloud
 # In the new instance created from the image, 
-# users still need to use `sudo` before they manually add themselves to the docker group
-sudo usermod -aG docker $USER
+# new users still need to use `sudo` before they manually add themselves to the docker group
+# If we use the traditional command, the following $USER when running the bash script with sudo will be root.
+# sudo usermod -aG docker $USER 
+# We need to find out the username of the sudo caller
+# https://stackoverflow.com/questions/3522341/identify-user-in-a-bash-script-called-by-sudo
+user=`who | awk '{print $1}'`
+sudo usermod -aG docker $user
+
 # Show the docker group users
 grep /etc/group -e "docker"
+
 # Reboot to make effect of adding the user to the docker group
 # Reboot to make sure NVIDIA driver is effective
 sudo reboot
