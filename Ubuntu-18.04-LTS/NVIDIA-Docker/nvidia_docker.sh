@@ -27,9 +27,11 @@ sudo apt-get install -y nvidia-docker2
 sudo pkill -SIGHUP dockerd
 
 # Add the user to the docker group
-# This has to go to the end of the script before reboot
+# This is not useful for baking the instance to image on cloud
+# In the new instance created from the image, 
+# users still need to use `sudo` before they manually add themselves to the docker group
 sudo usermod -aG docker $USER
 # Reboot to make effect of adding the user to the docker group
 # Reboot to make sure NVIDIA driver is effective
-# sudo reboot
-sudo poweroff
+sudo reboot
+# sudo poweroff
