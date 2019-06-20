@@ -17,7 +17,9 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-sudo usermod -aG docker $USER
+# Add the user to the docker group
+# This will not work for images on the cloud
+# sudo usermod -aG docker $USER
 
 # NVIDIA Docker
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
@@ -27,8 +29,7 @@ sudo apt-get update
 sudo apt-get install -y nvidia-docker2
 sudo pkill -SIGHUP dockerd
 
-# Reboot to add the user to the docker group
-sudo reboot
-
-# Shutdown the VM instance
+# Reboot to make effect of adding the user to the docker group
+# Reboot to make sure NVIDIA driver is effective
+# sudo reboot
 sudo poweroff
