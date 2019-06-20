@@ -1,4 +1,4 @@
-# Upgrade Ubuntu Components
+# Upgrade Ubuntu components
 sudo apt update
 sudo apt upgrade -y
 
@@ -30,5 +30,5 @@ sudo pkill -SIGHUP dockerd
 # Reboot to add the user to the docker group
 sudo reboot
 
-# Shutdown VM instance
+# Shutdown the VM instance
 sudo poweroff
