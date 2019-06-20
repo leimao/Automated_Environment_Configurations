@@ -31,6 +31,8 @@ sudo pkill -SIGHUP dockerd
 # In the new instance created from the image, 
 # users still need to use `sudo` before they manually add themselves to the docker group
 sudo usermod -aG docker $USER
+# Show the docker group users
+grep /etc/group -e "docker"
 # Reboot to make effect of adding the user to the docker group
 # Reboot to make sure NVIDIA driver is effective
 sudo reboot
