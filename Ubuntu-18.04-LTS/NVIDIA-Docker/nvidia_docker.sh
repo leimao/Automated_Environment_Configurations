@@ -2,7 +2,7 @@
 sudo apt update
 sudo apt upgrade -y
 
-# NVIDIA driver and CUDA
+# NVIDIA CUDA and driver with automatic upgrades for any NVIDIA GPU
 cd /tmp/
 wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.168-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1804_10.1.168-1_amd64.deb
