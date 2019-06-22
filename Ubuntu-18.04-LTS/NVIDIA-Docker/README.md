@@ -1,3 +1,8 @@
+# NVIDIA-Docker
+
+## Introduction
+
+This bash script automatically install the latest NVIDIA-docker and all of its dependencies.
 
 ## Installing Components
 
