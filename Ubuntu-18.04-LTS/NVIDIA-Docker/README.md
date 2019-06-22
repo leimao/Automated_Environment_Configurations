@@ -14,8 +14,7 @@ This bash script automatically install the latest NVIDIA-docker and all of its d
 ## Usage
 
 ```bash
-$ chmod +x nvidia_docker.sh
-$ sudo ./nvidia_docker.sh
+$ [sudo] bash nvidia_docker.sh
 ```
 
 ## Notes
